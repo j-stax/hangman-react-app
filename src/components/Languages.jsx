@@ -9,7 +9,7 @@ export default function Languages() {
         }
         return (
             <span
-                className="languages__language"
+                className="language-chips__chip"
                 style={styles}
                 key={item.name}
             >
@@ -19,7 +19,7 @@ export default function Languages() {
     })
 
     return (
-        <section className="languages">
+        <section className="language-chips">
             {languageElements}
         </section>
     )
