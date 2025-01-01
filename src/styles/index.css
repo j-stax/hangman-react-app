@@ -4,24 +4,33 @@
 
 body {
   margin: 0;
-  max-width: 25rem;
+  min-width: 25rem;
   font-family: "Hanken Grotesk", Arial, sans-serif;
   background-color: #262626;
   height: 100vh;
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
+.header {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
 .header__title {
   color: #F9F4DA;
+  margin-bottom: 4px;
 }
 .header__game-description {
+  max-width: 22.5rem;
   color: #8E8E8E;
+  margin: auto;
 }
 
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 0.5rem;
 }
 
 .language-chips {
@@ -39,12 +48,38 @@ main {
 
 .word {
   margin-block: 2.25rem;
+  display: flex;
+  gap: 2px;
 }
 
 .word__letter {
+  width: 2.5rem;
+  height: 2.5rem;
   color: #F9F4DA;
   background-color: #323232;
-  padding: 6px;
   border-bottom: 1px solid #F9F4DA;
-  margin: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.125rem;
+}
+
+.keyboard {
+  max-width: 22.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  padding-top: 0.75rem;
+}
+.keyboard__btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 4px;
+  background-color: #FCBA29;
+  border: none;
+  font-size: 1.125rem;
+}
+.keyboard__btn:hover {
+  cursor: pointer;
 }/*# sourceMappingURL=index.css.map */
