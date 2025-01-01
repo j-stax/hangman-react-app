@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  max-width: 25rem;
+  font-family: "Hanken Grotesk", Arial, sans-serif;
+  background-color: #262626;
+  height: 100vh;
+  text-align: center;
+}
+
+.header__title {
+  color: #F9F4DA;
+}
+.header__game-description {
+  color: #8E8E8E;
+}
+
+.languages {
+  max-width: 22.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2px;
+  margin: auto;
+}
+.languages__language {
+  font-weight: 700;
+  border-radius: 3px;
+  padding: 4.5px;
+}/*# sourceMappingURL=index.css.map */
