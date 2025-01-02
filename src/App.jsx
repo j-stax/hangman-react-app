@@ -7,6 +7,7 @@ function App() {
   const [guessedLetters, setGuessedLetters] = useState([])
 
   const keyboardAlphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  const wrongGuessCount = guessedLetters.filter(letter => !currentWord.includes(letter)).length
 
   const keyboardElements = keyboardAlphabets.split("").map(letter => 
       <button 
@@ -31,13 +32,7 @@ function App() {
     setGuessedLetters(prevLetters => 
       prevLetters.includes(letter) ? prevLetters : [...prevLetters, letter]
     )
-
-    if (currentWord.includes(letter)) {
-      element.style.backgroundColor = "#10A95B"
-    }
-    else {
-      element.style.backgroundColor = "#EC5D49"
-    }
+    element.style.backgroundColor = currentWord.includes(letter) ? "#10A95B" : "#EC5D49"
   }
 
   return (
@@ -48,7 +43,7 @@ function App() {
           the programming world safe from Assembly!</p>
       </header>
       <main>
-        <Languages />
+        <Languages wrongGuessCount={wrongGuessCount} />
         <section className="word">
           {letterElements}
         </section>
