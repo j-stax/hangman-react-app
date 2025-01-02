@@ -51,7 +51,6 @@ main {
   display: flex;
   gap: 2px;
 }
-
 .word__letter {
   width: 2.5rem;
   height: 2.5rem;

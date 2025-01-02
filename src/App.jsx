@@ -1,18 +1,44 @@
 import { useState } from "react"
 import Languages from "./components/Languages"
-import Keyboard from "./components/Keyboard"
 import { words } from "../words"
 
 function App() {
   const [currentWord, setCurrentWord] = useState("react")
+  const [guessedLetters, setGuessedLetters] = useState([])
 
-  const letterElements = currentWord.split("").map(letter => 
+  const keyboardAlphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+  const keyboardElements = keyboardAlphabets.split("").map(letter => 
+      <button 
+          className="keyboard__btn"
+          key={letter}
+          onClick={(event) => addGuessedLetter(letter.toLowerCase(), event.target)}
+      >
+          {letter}
+      </button>
+  )
+
+  const letterElements = currentWord.split("").map(letter =>
     <span 
       className="word__letter"
       key={letter}
     >
+      {guessedLetters.includes(letter) ? letter.toUpperCase() : " "}
     </span>
   )
+
+  function addGuessedLetter(letter, element) {
+    setGuessedLetters(prevLetters => 
+      prevLetters.includes(letter) ? prevLetters : [...prevLetters, letter]
+    )
+
+    if (currentWord.includes(letter)) {
+      element.style.backgroundColor = "#10A95B"
+    }
+    else {
+      element.style.backgroundColor = "#EC5D49"
+    }
+  }
 
   return (
     <>
@@ -26,7 +52,9 @@ function App() {
         <section className="word">
           {letterElements}
         </section>
-        <Keyboard />
+        <section className="keyboard">
+          {keyboardElements}
+        </section>
       </main>
     </>
   )

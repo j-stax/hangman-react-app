@@ -53,18 +53,18 @@ main {
     margin-block: 2.25rem;
     display: flex;
     gap: 2px;
-}
 
-.word__letter {
-    width: 2.5rem;
-    height: 2.5rem;
-    color: #F9F4DA;
-    background-color: #323232;
-    border-bottom: 1px solid #F9F4DA;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.125rem;
+    &__letter {
+        width: 2.5rem;
+        height: 2.5rem;
+        color: #F9F4DA;
+        background-color: #323232;
+        border-bottom: 1px solid #F9F4DA;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.125rem;
+    }
 }
 
 .keyboard {
