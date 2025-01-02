@@ -40,6 +40,7 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     gap: 2px;
+    margin-bottom: 1.25rem;
 
     &__chip {
         font-weight: 700;
@@ -59,9 +60,23 @@ main {
                 font-size: 0.85rem;
                 top: 0;
                 left: 0;
-                background-color: rgba($color: 0, 0, 0, 0.7);
+                background-color: rgba(0, 0, 0, 0.7);
             }
         }
+    }
+}
+
+.status {
+    width: 21.87rem;
+    text-align: center;
+    padding: 0.45rem 0;
+    background-color: #10A95B;
+    border-radius: 4px;
+
+    &__text {
+        font-size: 1.25rem;
+        margin: 0;
+        color: #F9F4DA;
     }
 }
 
@@ -69,11 +84,11 @@ main {
     margin-block: 2.25rem;
     display: flex;
     gap: 2px;
-    border: 1px solid white;
 
     &__letter {
-        width: 2rem;
-        height: 2rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        padding: 6px;
         color: #F9F4DA;
         background-color: #323232;
         border-bottom: 1px solid #F9F4DA;
@@ -90,6 +105,7 @@ main {
     justify-content: center;
     gap: 4px;
     padding-top: 0.75rem;
+    margin-bottom: 2.25rem;
 
     &__btn {
         width: 2.5rem;
@@ -103,4 +119,15 @@ main {
             cursor: pointer;
         }
     }
+}
+
+.new-game-btn {
+    padding: 0.375rem 0;
+    width: 14rem;
+    height: 2.5rem;
+    background-color: #11B5E5;
+    color: #1E1E1E;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
 }

@@ -1,5 +1,7 @@
 import { useState } from "react"
+import Status from "./components/Status"
 import Languages from "./components/Languages"
+import { languages } from "../languages"
 import { words } from "../words"
 
 function App() {
@@ -8,6 +10,9 @@ function App() {
 
   const keyboardAlphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   const wrongGuessCount = guessedLetters.filter(letter => !currentWord.includes(letter)).length
+  const isGameWon = currentWord.split("").every(letter => guessedLetters.includes(letter))
+  const isGameLost = wrongGuessCount >= languages.length-1
+  const isGameOver = isGameWon || isGameLost
 
   const keyboardElements = keyboardAlphabets.split("").map(letter => 
       <button 
@@ -44,12 +49,18 @@ function App() {
       </header>
       <main>
         <Languages wrongGuessCount={wrongGuessCount} />
+        <Status />
         <section className="word">
           {letterElements}
         </section>
         <section className="keyboard">
           {keyboardElements}
         </section>
+        {isGameOver && 
+          <button 
+            className="new-game-btn"
+          >New Game</button>
+        }
       </main>
     </>
   )
