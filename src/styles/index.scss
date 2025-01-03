@@ -5,7 +5,7 @@
 body {
     margin: 0;
     min-width: 21.5rem;
-    max-width: 28rem;
+    // max-width: 28rem;
     font-family: "Hanken Grotesk", Arial, sans-serif;
     background-color: #262626;
     padding: 0.5rem;
@@ -169,4 +169,8 @@ main {
     border-radius: 4px;
     font-weight: 600;
     cursor: pointer;
+}
+
+.guess-count {
+    color: #8E8E8E;
 }

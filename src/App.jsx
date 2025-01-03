@@ -19,6 +19,7 @@ function App() {
   const isGameLost = wrongGuessCount >= languages.length-1
   const isGameOver = isGameWon || isGameLost
   const isLastGuessWrong = guessedLetters.length > 0 && !currentWord.includes(guessedLetters[guessedLetters.length-1])
+  const guessesRemaining = languages.length-1 - wrongGuessCount
 
   const keyboardElements = keyboardAlphabets.split("").map(letter => 
       <button 
@@ -105,6 +106,7 @@ function App() {
             onClick={resetGame}
           >New Game</button>
         }
+        <p className="guess-count">Guesses remaining: {guessesRemaining}</p>
       </main>
     </>
   )
