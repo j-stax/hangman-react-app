@@ -13,6 +13,7 @@ function App() {
   const isGameWon = currentWord.split("").every(letter => guessedLetters.includes(letter))
   const isGameLost = wrongGuessCount >= languages.length-1
   const isGameOver = isGameWon || isGameLost
+  const isLastGuessWrong = guessedLetters.length > 0 && !currentWord.includes(guessedLetters[guessedLetters.length-1])
 
   const keyboardElements = keyboardAlphabets.split("").map(letter => 
       <button 
@@ -49,7 +50,12 @@ function App() {
       </header>
       <main>
         <Languages wrongGuessCount={wrongGuessCount} />
-        <Status />
+        <Status 
+          isGameLost={isGameLost}
+          isGameWon={isGameWon}
+          isGameOver={isGameOver}
+          isLastGuessWrong={isLastGuessWrong}
+        />
         <section className="word">
           {letterElements}
         </section>
