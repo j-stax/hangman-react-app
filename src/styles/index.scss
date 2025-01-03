@@ -4,7 +4,7 @@
 
 body {
     margin: 0;
-    min-width: 22rem;
+    min-width: 21.5rem;
     max-width: 28rem;
     font-family: "Hanken Grotesk", Arial, sans-serif;
     background-color: #262626;
@@ -35,7 +35,6 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 0.5rem;
 }
 
 .language-chips {
