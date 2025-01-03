@@ -5,7 +5,7 @@ import { languages } from "../languages"
 import { words } from "../words"
 
 function App() {
-  const [currentWord, setCurrentWord] = useState("react")
+  const [currentWord, setCurrentWord] = useState(() => chooseRandomWord())
   const [guessedLetters, setGuessedLetters] = useState([])
 
   const keyboardAlphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -26,20 +26,35 @@ function App() {
       </button>
   )
 
-  const letterElements = currentWord.split("").map(letter =>
+  const letterElements = currentWord.split("").map((letter, index) =>
     <span 
-      className="word__letter"
-      key={letter}
+      className={!guessedLetters.includes(letter) && isGameLost ? 
+        "word__letter word__letter--missed" : "word__letter"
+      }
+      key={index}
     >
-      {guessedLetters.includes(letter) ? letter.toUpperCase() : " "}
+      {guessedLetters.includes(letter) || isGameLost ? letter.toUpperCase() : " "}
     </span>
   )
+
+  function chooseRandomWord() {
+    return words[Math.floor(Math.random() * words.length)]
+  }
 
   function addGuessedLetter(letter, element) {
     setGuessedLetters(prevLetters => 
       prevLetters.includes(letter) ? prevLetters : [...prevLetters, letter]
     )
     element.style.backgroundColor = currentWord.includes(letter) ? "#10A95B" : "#EC5D49"
+  }
+
+  function resetGame() {
+    setCurrentWord(chooseRandomWord())
+    setGuessedLetters([])
+    const keyboardBtns = document.getElementsByClassName("keyboard__btn")
+    for (let btn of keyboardBtns) {
+      btn.style.backgroundColor = "#FCBA29"
+    }
   }
 
   return (
@@ -67,6 +82,7 @@ function App() {
         {isGameOver && 
           <button 
             className="new-game-btn"
+            onClick={resetGame}
           >New Game</button>
         }
       </main>

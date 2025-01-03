@@ -129,6 +129,10 @@ main {
         justify-content: center;
         align-items: center;
         font-size: 1.125rem;
+
+        &--missed {
+            color: #EC5D49;
+        }
     }
 }
 
@@ -165,4 +169,5 @@ main {
     border: none;
     border-radius: 4px;
     font-weight: 600;
+    cursor: pointer;
 }

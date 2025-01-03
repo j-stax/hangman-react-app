@@ -118,6 +118,9 @@ main {
   align-items: center;
   font-size: 1.125rem;
 }
+.word__letter--missed {
+  color: #EC5D49;
+}
 
 .keyboard {
   max-width: 25rem;
@@ -150,4 +153,5 @@ main {
   border: none;
   border-radius: 4px;
   font-weight: 600;
+  cursor: pointer;
 }/*# sourceMappingURL=index.css.map */
