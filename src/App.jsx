@@ -20,6 +20,7 @@ function App() {
           className="keyboard__btn"
           key={letter}
           onClick={(event) => addGuessedLetter(letter.toLowerCase(), event.target)}
+          disabled={isGameOver}
       >
           {letter}
       </button>
@@ -55,6 +56,7 @@ function App() {
           isGameWon={isGameWon}
           isGameOver={isGameOver}
           isLastGuessWrong={isLastGuessWrong}
+          wrongGuessCount={wrongGuessCount}
         />
         <section className="word">
           {letterElements}

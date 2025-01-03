@@ -9,21 +9,11 @@ export default function Languages({wrongGuessCount}) {
             backgroundColor: item.backgroundColor
         }
 
-        if (index < wrongGuessCount) {
-            return (
-                <span
-                    className="language-chips__chip language-chips__chip--eliminated"
-                    style={styles}
-                    key={item.name}
-                >
-                    {item.name}
-                </span>
-            )
-        }
-
         return (
             <span
-                className="language-chips__chip"
+                className={index < wrongGuessCount ? 
+                    "language-chips__chip language-chips__chip--eliminated" : "language-chips__chip"
+                }
                 style={styles}
                 key={item.name}
             >

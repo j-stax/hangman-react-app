@@ -83,6 +83,7 @@ main {
 }
 .status--farewell {
   background-color: #7A5EA7;
+  flex-direction: row;
 }
 .status__text {
   margin: 0;
@@ -97,6 +98,7 @@ main {
 .status__text--farewell {
   font-size: 1rem;
   font-style: italic;
+  margin-right: 5px;
 }
 
 .word {

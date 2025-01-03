@@ -90,6 +90,7 @@ main {
 
     &--farewell {
         background-color: #7A5EA7;
+        flex-direction: row;
     }
 
     &__text {
@@ -107,6 +108,7 @@ main {
         &--farewell {
             font-size: 1rem;
             font-style: italic;
+            margin-right: 5px;
         }
     }
 }

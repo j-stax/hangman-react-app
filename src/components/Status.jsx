@@ -1,4 +1,5 @@
-import { useRef } from "react"
+import { getFarewellText } from "../../utils"
+import { languages } from "../../languages"
 
 export default function Status(props) {
 
@@ -19,7 +20,14 @@ export default function Status(props) {
 
     function getGameStatus() {
         if (!props.isGameOver && props.isLastGuessWrong) {
-            return <p className="status__text status__text--farewell">"Farewell"</p>
+            return (
+                <>
+                    <p className="status__text status__text--farewell">
+                        "{getFarewellText(languages[props.wrongGuessCount-1].name)}"
+                    </p>
+                    <span>🫡</span>
+                </>
+            )
         }
         else if (props.isGameWon) {
             return (
