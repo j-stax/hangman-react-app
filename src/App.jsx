@@ -3,10 +3,15 @@ import Status from "./components/Status"
 import Languages from "./components/Languages"
 import { languages } from "../languages"
 import { words } from "../words"
+import ReactConfetti from "react-confetti"
 
 function App() {
   const [currentWord, setCurrentWord] = useState(() => chooseRandomWord())
   const [guessedLetters, setGuessedLetters] = useState([])
+  const [windowDimensions, setWindowDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight
+  })
 
   const keyboardAlphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   const wrongGuessCount = guessedLetters.filter(letter => !currentWord.includes(letter)).length
@@ -57,8 +62,23 @@ function App() {
     }
   }
 
+  window.addEventListener("resize", () => {
+    setWindowDimensions({
+      width: window.innerWidth,
+      height: window.innerHeight
+    })
+  })
+
   return (
     <>
+      {isGameWon && 
+        <ReactConfetti 
+          width={windowDimensions.width} 
+          height={windowDimensions.height} 
+          recycle={false}
+          numberOfPieces={3000}
+        />
+      }
       <header className="header">
         <h1 className="header__title">Program Lang Hangman</h1>
         <p className="header__game-description">Guess the word in under 8 attempts to keep 
