@@ -126,7 +126,7 @@ main {
   justify-content: center;
   flex-shrink: 1;
   gap: 4px;
-  padding: 0.75rem 0;
+  padding: 0 0 0.75rem;
 }
 .keyboard__btn {
   width: 2.5rem;
