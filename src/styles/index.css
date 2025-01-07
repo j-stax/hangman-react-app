@@ -138,6 +138,7 @@ main {
 }
 .keyboard__btn:hover {
   cursor: pointer;
+  background-color: #de9802;
 }
 
 .new-game-btn {
