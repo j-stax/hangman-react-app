@@ -64,7 +64,6 @@ function App() {
     setGuessedLetters([])
     const keyboardBtns = document.getElementsByClassName("keyboard__btn")
     for (let btn of keyboardBtns) {
-      console.log(btn.classList.contains("correct"))
       if (btn.classList.contains("correct")) {
         btn.classList.remove("correct")
       }
