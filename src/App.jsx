@@ -51,7 +51,12 @@ function App() {
     setGuessedLetters(prevLetters => 
       prevLetters.includes(letter) ? prevLetters : [...prevLetters, letter]
     )
-    element.style.backgroundColor = currentWord.includes(letter) ? "#10A95B" : "#EC5D49"
+    if (currentWord.includes(letter)) {
+      element.classList.add("correct")
+    }
+    else {
+      element.classList.add("wrong")
+    }
   }
 
   function resetGame() {
@@ -59,7 +64,13 @@ function App() {
     setGuessedLetters([])
     const keyboardBtns = document.getElementsByClassName("keyboard__btn")
     for (let btn of keyboardBtns) {
-      btn.style.backgroundColor = "#FCBA29"
+      console.log(btn.classList.contains("correct"))
+      if (btn.classList.contains("correct")) {
+        btn.classList.remove("correct")
+      }
+      if (btn.classList.contains("wrong")) {
+        btn.classList.remove("wrong")
+      }
     }
   }
 

@@ -141,6 +141,16 @@ main {
   background-color: #de9802;
 }
 
+.correct {
+  background-color: #10A95B;
+  pointer-events: none;
+}
+
+.wrong {
+  background-color: #EC5D49;
+  pointer-events: none;
+}
+
 .new-game-btn {
   padding: 0.375rem;
   width: 14rem;
