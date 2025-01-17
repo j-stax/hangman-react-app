@@ -22,14 +22,14 @@ function App() {
   const guessesRemaining = languages.length-1 - wrongGuessCount
 
   const keyboardElements = keyboardAlphabets.split("").map(letter => 
-      <button 
-          className="keyboard__btn"
-          key={letter}
-          onClick={(event) => addGuessedLetter(letter.toLowerCase(), event.target)}
-          disabled={isGameOver}
-      >
-          {letter}
-      </button>
+    <button 
+      className="keyboard__btn"
+      key={letter}
+      onClick={(event) => addGuessedLetter(event.target)}
+      disabled={isGameOver}
+    >
+      {letter}
+    </button>
   )
 
   const letterElements = currentWord.split("").map((letter, index) =>
@@ -47,15 +47,16 @@ function App() {
     return words[Math.floor(Math.random() * words.length)]
   }
 
-  function addGuessedLetter(letter, element) {
+  function addGuessedLetter(letterElement) {
+    const letter = letterElement.textContent.toLowerCase()
     setGuessedLetters(prevLetters => 
       prevLetters.includes(letter) ? prevLetters : [...prevLetters, letter]
     )
     if (currentWord.includes(letter)) {
-      element.classList.add("correct")
+      letterElement.classList.add("correct")
     }
     else {
-      element.classList.add("wrong")
+      letterElement.classList.add("wrong")
     }
   }
 
